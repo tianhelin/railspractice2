@@ -1,0 +1,12 @@
+
+
+<% @discussions.each do |discussion| %>
+    <li>
+        <%= discussion.topic %>
+        <%= link_to '閱讀', discussion_path(discussion) %>
+        <%= link_to '編輯', edit_discussion_path(discussion) %>
+        <%= link_to '刪除', discussion_path(discussion), :method => :delete, :data =>{ :comfirm => "確定刪除文章?"} %>
+    </li>
+<% end %>
+
+<%= link_to 'New Topic', new_discussion_path %>
