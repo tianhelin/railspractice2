@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
     before_action :set_discusstion, :only => [:show,:edit,:update,:destroy]
+    
     def index
         @discussions = Discussion.all
     end
@@ -31,6 +32,10 @@ class DiscussionsController < ApplicationController
 private
 
     def discussion_params
-      params.require(:discussion).permit(:topic, :article)
+        params.require(:discussion).permit(:topic, :article)
+    end
+    
+    def set_discusstion
+        @discussion = Discussion.find(params[:id])
     end
 end
