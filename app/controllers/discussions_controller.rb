@@ -17,11 +17,15 @@ class DiscussionsController < ApplicationController
     end
     
     def show
-        
+    end
+    
+    def edit
     end
     
     def update
+        @discussion.update(discussion_params)
         
+        redirect_to discussions_path
     end
     
     def destroy
