@@ -19,6 +19,7 @@ class DiscussionsController < ApplicationController
     
     def show
         @discussion = Discussion.find(params[:id])
+        @comment = @discussion.comments.build(:discussion_id => @discussion.id)
     end
     
     def edit

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-resources :discussions
+resources :discussions do 
+  resources :comments, :controller => 'comments'
+end
+
 root to: "discussions#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

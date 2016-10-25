@@ -2,6 +2,21 @@
 <%= @discussion.topic %>
 <%= simple_format (@discussion.article) %>
 
+<ul>
+    <% @discussion.comments.all.each do |d| %>
+        <li>
+            <%= d.text %>
+        </li>
+    <% end %>
+</ul>
+
+<%= form_for @comment, url:{:action=>"create", :controller=>"comments",:discussion_id => @discussion.id} do |f| %>
+    <%= f.label :text ,'新增推文'%>
+    <%= f.text_area :text %>
+    <%= f.submit '發表' %>
+<% end %>
+
+
 
 <p><%= link_to '首頁' , discussions_path %></p>
 
